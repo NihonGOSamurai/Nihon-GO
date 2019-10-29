@@ -1,3 +1,2 @@
-import Application from './Application'
-
-export default Application
+export { default } from './Application'
+export * from './Application'
