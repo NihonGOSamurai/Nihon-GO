@@ -8,9 +8,9 @@ import Container, { ContainerProps } from '@material-ui/core/Container'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Button, { ButtonProps } from '@material-ui/core/Button'
 import SearchIcon from '@material-ui/icons/Search'
+import AddIcon from '@material-ui/icons/Add'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import text from '../text'
-import Paper, { PaperProps } from '@material-ui/core/Paper'
 import { createMuiTheme, Theme } from '@material-ui/core/styles'
 import Grid, { GridProps } from '@material-ui/core/Grid'
 
@@ -18,13 +18,24 @@ const defaultTheme = createMuiTheme()
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${({ theme }: {theme: Theme}) => theme.palette.grey[100]}
+    background-color: ${({ theme }: {theme: Theme}) => theme.palette.grey[100]};
   }
 `
 
 const MainContainer = styled(Container).attrs({
-  maxWidth: 'xl'
+  maxWidth: 'md'
 })<ContainerProps>`
+  height: 100%;
+  margin-top: ${({ theme }) => theme.spacing(3)}px;
+`
+
+const MainContainer_ = styled(Box).attrs({
+  component: MainContainer,
+  display: 'flex',
+  flexDirection: 'column'
+})<BoxProps>`
+  height: 100%;
+  margin-top: ${({ theme }) => theme.spacing(3)}px;
 `
 
 const TitleBox = styled(Box).attrs({
@@ -57,14 +68,17 @@ const SearchInput = styled(TextField).attrs({
 const ChapterContainer = styled(Container).attrs({
   maxWidth: 'md'
 })`
-  padding: ${({ theme }) => theme.spacing(3)}
+  padding: ${({ theme }) => theme.spacing(3)};
+  flex: 1;
+  overflow: auto;
 `
 
 const ChapterList = styled(Grid).attrs({
   container: true,
   direction: 'column',
   justifycontent: 'center',
-  spacing: 2
+  spacing: 2,
+  wrap: 'nowrap'
 })<GridProps>`
 `
 
@@ -82,7 +96,15 @@ const ChapterButton = styled(Button).attrs({
   background-color: #fff
 `
 
-const chapters = ['Chap0', 'Chap1', 'Chap2', 'Chap3']
+const AddChapterButton = styled(Button).attrs({
+  variant: 'outlined',
+  fullWidth: true
+})<ButtonProps>`
+  margin-top: ${({ theme }) => theme.spacing(3)};
+  padding: ${({ theme }) => theme.spacing(3, 2)};
+`
+
+const chapters = ['Chap0', 'Chap1', 'Chap2', 'Chap3', 'Chap0', 'Chap1', 'Chap2', 'Chap3', 'Chap0', 'Chap1', 'Chap2', 'Chap3', 'Chap0', 'Chap1', 'Chap2', 'Chap3', 'Chap0', 'Chap1', 'Chap2', 'Chap3', 'Chap0', 'Chap1', 'Chap2', 'Chap3']
 
 const ChapterListItem = ({ chapter }: {chapter: string}) =>
   <ChapterItem>
@@ -101,7 +123,7 @@ const Application = () =>
     <CssBaseline />
     <MuiThemeProvider theme={defaultTheme}>
       <ThemeProvider theme={defaultTheme}>
-        <MainContainer>
+        <MainContainer_>
           <TitleBox>
             <Title>
               {text.title}
@@ -116,7 +138,10 @@ const Application = () =>
               {generateChapterListItems(chapters)}
             </ChapterList>
           </ChapterContainer>
-        </MainContainer>
+          <AddChapterButton>
+            <AddIcon />
+          </AddChapterButton>
+        </MainContainer_>
       </ThemeProvider>
     </MuiThemeProvider>
   </StylesProvider>
