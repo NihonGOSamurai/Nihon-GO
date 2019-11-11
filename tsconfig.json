@@ -4,7 +4,7 @@
     "jsx": "react",
     "module": "esnext",
     "strict": true,
-    "target": "es5",
+    "target": "es2016",
     "moduleResolution": "node"
   },
   "exclude": [
