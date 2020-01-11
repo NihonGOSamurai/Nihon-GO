@@ -7,6 +7,6 @@ const ChapterBase = styled(Button).attrs({
   padding: ${({ theme }) => theme.spacing(3, 2)};
 `
 
-export type ChapterBaseProps = ButtonProps
+export type ChapterBaseProps = Omit<ButtonProps, 'fullWidth'>
 
 export default ChapterBase

@@ -11,14 +11,6 @@ const InputAdornmentIcon = () =>
     <SearchIcon />
   </InputAdornment>
 
-const Input = styled(TextField).attrs({
-  fullWidth: true,
-  InputProps: {
-    endAdornment: <InputAdornmentIcon />
-  }
-})<TextFieldProps>`
-`
-
 const ChipBox = styled(Box).attrs({
   display: 'flex',
   flexWrap: 'wrap'
@@ -58,11 +50,15 @@ const SearchInput = ({ label, placeholder }: SearchInputProps) => {
 
   return (
     <>
-      <Input
+      <TextField
+        fullWidth={true}
         label={label}
         placeholder={placeholder}
         onKeyPress={handleKeyPress}
         value={searchInput}
+        InputProps= {{
+          endAdornment: <InputAdornmentIcon />
+        }}
         onChange={handleInputChange}
       />
       <ChipBox>
