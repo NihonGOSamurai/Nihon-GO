@@ -1,10 +1,15 @@
 import { ask } from './ask.mjs'
 import { ComponentGenerateResolver } from './ComponentGenerateResolver.mjs'
+import { PageGenerateResolver } from './PageGenerateResolver.mjs'
 
 const typeOfItems = [
   {
     name: 'Component',
     resolver: new ComponentGenerateResolver()
+  },
+  {
+    name: 'Page',
+    resolver: new PageGenerateResolver()
   }
 ]
 

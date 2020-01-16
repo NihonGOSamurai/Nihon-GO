@@ -3,14 +3,14 @@ import { ask } from './ask.mjs'
 import * as path from 'path'
 import { GenerateResolver } from './GenerateResolver.mjs'
 
-export class ComponentGenerateResolver extends GenerateResolver {
+export class PageGenerateResolver extends GenerateResolver {
   async getName () {
-    const name = await ask('name of component: ')
+    const name = await ask('name of page: ')
     return name
   }
 
   getItemPath (name) {
-    return path.resolve(appRoot.path, 'src', 'Components', name)
+    return path.resolve(appRoot.path, 'src', 'Pages', name)
   }
 
   getIndexFileContent ({ name }) {
