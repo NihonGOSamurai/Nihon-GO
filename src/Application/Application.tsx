@@ -6,6 +6,8 @@ import Container, { ContainerProps } from '@material-ui/core/Container'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { createMuiTheme, Theme } from '@material-ui/core/styles'
 import MainPage from '../Pages/MainPage'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Chapter from '../Pages/Chapter'
 
 const defaultTheme = createMuiTheme()
 
@@ -34,7 +36,13 @@ const Application = () =>
     <MuiThemeProvider theme={defaultTheme}>
       <ThemeProvider theme={defaultTheme}>
         <MainContent>
-          <MainPage />
+          asfadsf
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/" component={MainPage} />
+              <Route path="/chapter" component={Chapter} />
+            </Switch>
+          </BrowserRouter>
         </MainContent>
       </ThemeProvider>
     </MuiThemeProvider>
