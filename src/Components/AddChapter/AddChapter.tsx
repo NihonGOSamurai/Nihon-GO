@@ -3,14 +3,16 @@ import styled from 'styled-components'
 import ChapterBase, { ChapterBaseProps } from '../ChapterBase'
 import AddIcon from '@material-ui/icons/Add'
 
-const ChapterButton = styled(ChapterBase)<ChapterBaseProps>`
+const ChapterButton = styled(ChapterBase).attrs({
+  variant: 'outlined'
+})<AddChapterProps>`
   margin-top: ${({ theme }) => theme.spacing(3)};
 `
 
-export type AddChapterProps = ChapterBaseProps
+export type AddChapterProps = Omit<ChapterBaseProps, 'variant'>
 
-const AddChapter = (props: ChapterBaseProps) =>
-  <ChapterButton variant='outlined' {...props} >
+const AddChapter = (props: AddChapterProps) =>
+  <ChapterButton to='chapter' {...props}>
     <AddIcon />
   </ChapterButton>
 

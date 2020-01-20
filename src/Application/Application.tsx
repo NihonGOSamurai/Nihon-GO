@@ -36,7 +36,6 @@ const Application = () =>
     <MuiThemeProvider theme={defaultTheme}>
       <ThemeProvider theme={defaultTheme}>
         <MainContent>
-          asfadsf
           <BrowserRouter>
             <Switch>
               <Route exact path="/" component={MainPage} />
