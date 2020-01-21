@@ -1,20 +1,14 @@
 import styled from 'styled-components'
-import Button from '@material-ui/core/Button'
-import { Link } from 'react-router-dom'
-import React, { ReactNode } from 'react'
+import Button, { ButtonProps } from '@material-ui/core/Button'
+import React from 'react'
 
 const ChapterButton = styled(Button).attrs({
-  component: Link,
   fullWidth: true
-})<ChapterBaseProps>`
+})<ButtonProps>`
   padding: ${({ theme }) => theme.spacing(3, 2)};
 `
 
-export interface ChapterBaseProps {
-  variant?: 'text' | 'outlined' | 'contained'
-  to: string
-  children: ReactNode
-}
+export type ChapterBaseProps = Omit<ButtonProps, 'fullWidth'>
 
 const ChapterBase = (props: ChapterBaseProps) =>
   <ChapterButton

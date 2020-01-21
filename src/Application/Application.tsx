@@ -8,6 +8,8 @@ import { createMuiTheme, Theme } from '@material-ui/core/styles'
 import MainPage from '../Pages/MainPage'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Chapter from '../Pages/Chapter'
+import Title from '../Components/Title'
+import text from '../text'
 
 const defaultTheme = createMuiTheme()
 
@@ -36,6 +38,7 @@ const Application = () =>
     <MuiThemeProvider theme={defaultTheme}>
       <ThemeProvider theme={defaultTheme}>
         <MainContent>
+          <Title title={text.title} />
           <BrowserRouter>
             <Switch>
               <Route exact path="/" component={MainPage} />

@@ -12,7 +12,7 @@ const ChapterButton = styled(ChapterBase).attrs({
 export type AddChapterProps = Omit<ChapterBaseProps, 'variant'>
 
 const AddChapter = (props: AddChapterProps) =>
-  <ChapterButton to='chapter' {...props}>
+  <ChapterButton {...props}>
     <AddIcon />
   </ChapterButton>
 

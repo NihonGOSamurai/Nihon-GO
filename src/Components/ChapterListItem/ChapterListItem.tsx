@@ -21,7 +21,7 @@ export interface ChapterListItemProps {
 
 const ChapterListItem = ({ chapter }: ChapterListItemProps) =>
   <Item>
-    <ChapterButton to='chapter'>
+    <ChapterButton>
       {chapter}
     </ChapterButton>
   </Item>
