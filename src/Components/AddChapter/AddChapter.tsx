@@ -9,10 +9,10 @@ const ChapterButton = styled(ChapterBase).attrs({
   margin-top: ${({ theme }) => theme.spacing(3)};
 `
 
-export type AddChapterProps = Omit<ChapterBaseProps, 'variant'>
+export type AddChapterProps = Omit<ChapterBaseProps, 'variant' | 'to'>
 
 const AddChapter = (props: AddChapterProps) =>
-  <ChapterButton {...props}>
+  <ChapterButton to='chapter' {...props}>
     <AddIcon />
   </ChapterButton>
 

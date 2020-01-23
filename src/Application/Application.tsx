@@ -9,7 +9,6 @@ import MainPage from '../Pages/MainPage'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Chapter from '../Pages/Chapter'
 import Title from '../Components/Title'
-import text from '../text'
 
 const defaultTheme = createMuiTheme()
 
@@ -37,15 +36,15 @@ const Application = () =>
     <CssBaseline />
     <MuiThemeProvider theme={defaultTheme}>
       <ThemeProvider theme={defaultTheme}>
-        <MainContent>
-          <Title title={text.title} />
-          <BrowserRouter>
+        <BrowserRouter>
+          <Title />
+          <MainContent>
             <Switch>
               <Route exact path="/" component={MainPage} />
               <Route path="/chapter" component={Chapter} />
             </Switch>
-          </BrowserRouter>
-        </MainContent>
+          </MainContent>
+        </BrowserRouter>
       </ThemeProvider>
     </MuiThemeProvider>
   </StylesProvider>
