@@ -14,6 +14,7 @@ const OmittedBox = ({ isExtended, ...props }: TitleBoxProps) => <Box {...props} 
 
 const titleBoxStyle = ({ isExtended, theme: { transitions } }: { theme: Theme, isExtended: boolean}) => css`
   height: ${isExtended ? 280 : 120}px;
+  background: white;
   transition: ${transitions.create(['height'], {
     duration: transitions.duration.enteringScreen,
     easing: transitions.easing.sharp
