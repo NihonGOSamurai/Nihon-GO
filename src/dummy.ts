@@ -7,9 +7,10 @@ const chapterItem: ChapterItem = {
   title: 'title',
   tags: ['tag1', 'tag2'],
   words: [{
+    text: '食もたれする',
     hiraganas: [{
       type: HiraganaType.None,
-      value: 'hiragana-value'
+      value: 'しょくもたれ'
     }, {
       type: HiraganaType.Kunyomi,
       value: 'kunyomi-value'
@@ -18,7 +19,13 @@ const chapterItem: ChapterItem = {
       value: 'onyomi-value'
     }],
     meanings: [{
-      value: 'meaings-value'
+      value: '체하다'
+    }, {
+      value: 'meaning2'
+    }, {
+      value: 'meaning3'
+    }, {
+      value: 'meaning4'
     }]
   }]
 }

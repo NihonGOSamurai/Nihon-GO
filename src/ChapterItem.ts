@@ -6,6 +6,7 @@ export interface ChapterItem {
 }
 
 export interface Word {
+  text: string
   hiraganas: Array<Hiragana>
   meanings: Array<Meaning>
 }

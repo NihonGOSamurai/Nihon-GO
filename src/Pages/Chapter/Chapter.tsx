@@ -1,11 +1,12 @@
 import React from 'react'
 import { useChapterItem } from './useChapter'
+import WordCard from '../../Components/WordCard'
 
 const Chapter = () => {
   const chapterItem = useChapterItem()
   return (
     <>
-      {JSON.stringify(chapterItem, null, '\t')}
+      <WordCard word={chapterItem.words[0]} />
     </>
   )
 }
