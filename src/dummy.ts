@@ -1,4 +1,4 @@
-import { ChapterItem, HiraganaType } from './Pages/Chapter/ChapterItem'
+import { ChapterItem, HiraganaType } from './ChapterItem'
 
 const chapters = ['Chap0', 'Chap1', 'Chap2', 'Chap3', 'Chap0', 'Chap1', 'Chap2', 'Chap3', 'Chap0', 'Chap1', 'Chap2', 'Chap3', 'Chap0', 'Chap1', 'Chap2', 'Chap3', 'Chap0', 'Chap1', 'Chap2', 'Chap3', 'Chap0', 'Chap1', 'Chap2', 'Chap3']
 

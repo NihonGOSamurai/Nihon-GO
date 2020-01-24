@@ -1,4 +1,4 @@
-import { ChapterItem } from './ChapterItem'
+import { ChapterItem } from '../../ChapterItem'
 import { chapterItem } from '../../dummy'
 
 type ChapterRouteParams = {
