@@ -41,7 +41,7 @@ const Application = () =>
           <MainContent>
             <Switch>
               <Route exact path="/" component={MainPage} />
-              <Route path="/chapter" component={Chapter} />
+              <Route path="/chapter/:chapterID" component={Chapter} />
             </Switch>
           </MainContent>
         </BrowserRouter>
