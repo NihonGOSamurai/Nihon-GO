@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ClickAwayListener, Typography } from '@material-ui/core'
+import { ClickAwayListener, Typography, TextField } from '@material-ui/core'
 
 type SharedProps = {
   value: string
@@ -10,8 +10,7 @@ type LabelProps = {
 } & SharedProps
 
 type EditProps = {
-  editModeOff: () => void
-  onEditFinished: (text: string) => void
+  editModeOff: (text: string) => void
 } & SharedProps
 
 const Label = ({ value, editModeOn }: LabelProps) => {
@@ -25,32 +24,46 @@ const Label = ({ value, editModeOn }: LabelProps) => {
   )
 }
 
-const Edit = ({ value, editModeOff, onEditFinished }: EditProps) => {
+const Edit = ({ value, editModeOff }: EditProps) => {
+  const [editValue, setEditValue] = useState(value)
   const handleClickAway = () => {
-    onEditFinished(value + 't')
-    editModeOff()
+    editModeOff(editValue)
   }
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setEditValue(event.target.value)
   return (
     <ClickAwayListener
       onClickAway={handleClickAway}
     >
-      <div>
-        {value}
-      </div>
+      <TextField
+        value={editValue}
+        onChange={handleChange}
+      />
     </ClickAwayListener>
   )
 }
 
-const EditableText = () => {
+const useEditableText = () => {
   const [value, setValue] = useState('temp')
   const [isEditing, setIsEditing] = useState(false)
-  const handleEditFinished = (text: string) => setValue(text)
   const editModeOn = () => setIsEditing(true)
-  const editModeOff = () => setIsEditing(false)
+  const editModeOff = (text: string) => {
+    setValue(text)
+    setIsEditing(false)
+  }
+
+  return {
+    value,
+    isEditing,
+    editModeOn,
+    editModeOff
+  }
+}
+
+const EditableText = () => {
+  const { value, isEditing, editModeOn, editModeOff } = useEditableText()
   if (isEditing) {
     return (
       <Edit
-        onEditFinished={handleEditFinished}
         value={value}
         editModeOff={editModeOff}
       />
