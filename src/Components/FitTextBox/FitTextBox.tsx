@@ -3,11 +3,11 @@ import fitty from 'fitty'
 
 export interface FitTextBoxProps {
   children: ReactNode
-  component?: JSX.Element
+  component? : React.ElementType
 }
 
 const FitTextBox = ({ component, ...props }: FitTextBoxProps) => {
-  const Component = component
+  const Component = component || 'div'
   const textRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     fitty(textRef.current as HTMLElement, {
@@ -18,9 +18,7 @@ const FitTextBox = ({ component, ...props }: FitTextBoxProps) => {
     <Component
       ref={textRef}
       {...props}
-    >
-aas
-    </Component>
+    />
   )
 }
 
