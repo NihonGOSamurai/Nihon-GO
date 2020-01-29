@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Card from '@material-ui/core/Card'
 import { CardContent, Typography, Grid, IconButton, Menu, MenuItem, GridProps } from '@material-ui/core'
 import { Word } from '../../ChapterItem'
 import FitTextBox, { FittyOptions } from '../FitTextBox'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import styled from 'styled-components'
+import { useWordCard } from './useWordCard'
 
 export interface WordCardProps {
   word: Word,
@@ -23,14 +24,23 @@ const AlignCenterGrid = styled(Grid)<GridProps>`
   align-items: center;
 `
 
-const WordCard = ({ word, onModifyMenuClick, onDeleteMenuClick }: WordCardProps) => {
-  const { text, hiraganas, meanings } = word
-  const [menuAnchorElement, setMenuAnchorElement] = useState<null | HTMLElement>(null)
-  const handleClick = ({ currentTarget }: React.MouseEvent<HTMLElement>) => setMenuAnchorElement(currentTarget)
-  const handleClose = () => setMenuAnchorElement(null)
-  const handleModifyMenuClick = () => onModifyMenuClick(word)
-  const handleDeleteMenuClick = () => onDeleteMenuClick(word)
-  const isOpened = Boolean(menuAnchorElement)
+const WordCard = (params: WordCardProps) => {
+  const {
+    word: {
+      text,
+      hiraganas,
+      meanings
+    }
+  } = params
+  const {
+    menuAnchorElement,
+    handleMenuClick,
+    handleClose,
+    handleModifyMenuClick,
+    handleDeleteMenuClick,
+    isOpened
+  } = useWordCard(params)
+
   return (
     <Card variant="outlined">
       <CardContent>
@@ -51,7 +61,7 @@ const WordCard = ({ word, onModifyMenuClick, onDeleteMenuClick }: WordCardProps)
           </Grid>
           <Grid item xs={1}>
             <IconButton
-              onClick={handleClick}
+              onClick={handleMenuClick}
             >
               <MoreVertIcon />
             </IconButton>
