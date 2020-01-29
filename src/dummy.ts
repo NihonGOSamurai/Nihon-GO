@@ -30,6 +30,10 @@ const chapterItem: ChapterItem = {
   }]
 }
 
+for (var i = 0; i < 11; i++) {
+  chapterItem.words[i + 1] = chapterItem.words[0]
+}
+
 export {
   chapters,
   chapterItem
