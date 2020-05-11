@@ -1,6 +1,6 @@
 import { ChapterItem, HiraganaType } from "./ChapterItem";
 
-const chapters = ["Chap0"];
+const chapters = ["Chap0, Chap1"];
 
 const chapterItem: ChapterItem = {
   chapterID: "chapterID",
