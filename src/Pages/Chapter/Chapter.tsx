@@ -1,41 +1,35 @@
-import React from 'react'
-import { Grid } from '@material-ui/core'
-import AddIcon from '@material-ui/icons/Add'
-import { useChapterItem } from './useChapter'
-import WordCard from '../../Components/WordCard'
-import { Word } from '../../ChapterItem'
-import FAB from '../../Components/FAB'
+import React from "react";
+import { Grid } from "@material-ui/core";
+import AddIcon from "@material-ui/icons/Add";
+import { useChapterItem } from "./useChapter";
+import WordCard from "../../Components/WordCard";
+import { Word } from "../../ChapterItem";
+import FAB from "../../Components/FAB";
+import AddWord from "../../Components/AddWord";
 
-const toWordCard = (word: Word, i: number) =>
-  <Grid
-    key={i}
-    item xs={12}
-    md={6}
-  >
+const toWordCard = (word: Word, i: number) => (
+  <Grid key={i} item xs={12} md={6}>
     <WordCard
       word={word}
       onModifyMenuClick={(word) => console.log(word)}
       onDeleteMenuClick={(word) => console.log(word)}
     />
   </Grid>
+);
 
 const Chapter = () => {
-  const {
-    chapterItem,
-    handleAddWord
-  } = useChapterItem()
+  const { chapterItem, handleAddWord } = useChapterItem();
   return (
     <>
+      <AddWord />
       <Grid container spacing={1}>
         {chapterItem.words.map(toWordCard)}
       </Grid>
-      <FAB
-        onClick={handleAddWord}
-      >
+      <FAB onClick={handleAddWord}>
         <AddIcon />
       </FAB>
     </>
-  )
-}
+  );
+};
 
-export default Chapter
+export default Chapter;
