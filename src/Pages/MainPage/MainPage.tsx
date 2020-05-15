@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchInput from "../../Components/SearchInput";
 import ChapterList from "../../Components/ChapterList";
 import ChapterListItem from "../../Components/ChapterListItem";
@@ -10,6 +10,7 @@ const generateChapterListItems = (chapters: Array<string>) =>
   chapters.map((chapter, i) => <ChapterListItem key={i} chapter={chapter} />);
 
 const MainPage = () => {
+  //  const [c, setC] = useState("");
   return (
     <>
       <SearchInput

@@ -18,14 +18,14 @@ const toWordCard = (word: Word, i: number) => (
 );
 
 const Chapter = () => {
-  const { chapterItem, handleAddWord } = useChapterItem();
+  const { chapterItems, handleAddWord } = useChapterItem();
   return (
     <>
       <AddWord />
       <Grid container spacing={1}>
-        {chapterItem.words.map(toWordCard)}
+        {chapterItems.words.map(toWordCard)}
       </Grid>
-      <FAB onClick={handleAddWord}>
+      <FAB>
         <AddIcon />
       </FAB>
     </>

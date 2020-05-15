@@ -1,6 +1,6 @@
 import { ChapterItem, HiraganaType } from "./ChapterItem";
 
-const chapters = ["Chap0, Chap1, Chap2"];
+const chapters = ["Chap1", "Chap2"];
 
 const chapterItem: ChapterItem = {
   chapterID: "chapterID",
@@ -41,8 +41,8 @@ const chapterItem: ChapterItem = {
   ],
 };
 
-for (var i = 0; i < 11; i++) {
-  chapterItem.words[i + 1] = chapterItem.words[0];
-}
+// for (var i = 0; i < 11; i++) {
+//   chapterItem.words[i + 1] = chapterItem.words[0];
+// }
 
 export { chapters, chapterItem };

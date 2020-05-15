@@ -8,6 +8,7 @@ import TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
+import { useChapterItem } from "../../Pages/Chapter/useChapter";
 
 const StyledModal = styled(Modal)`
   display: flex;
@@ -44,6 +45,7 @@ const AddWord = () => {
   const [hanjaInput, setHanjaInput] = React.useState<string>("");
   const [hiraganaInput, setHiraganaInput] = React.useState<string>("");
   const [meaningInput, setMeaningInput] = React.useState<string>("");
+  const { chapterItems, handleAddWord } = useChapterItem();
 
   const [open, setOpen] = React.useState(false);
 
@@ -60,7 +62,8 @@ const AddWord = () => {
     setOpen(true);
   };
   const handleClose = () => {
-    console.log(hanjaInput, hiraganaInput, meaningInput);
+    //console.log(hanjaInput, hiraganaInput, meaningInput);
+    handleAddWord(hanjaInput, hiraganaInput, meaningInput);
     setOpen(false);
   };
 
