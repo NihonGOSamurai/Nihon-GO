@@ -19,6 +19,7 @@ const toWordCard = (word: Word, i: number) => (
 
 const Chapter = () => {
   const { chapterItems, handleAddWord } = useChapterItem();
+  console.log(chapterItems);
   return (
     <>
       <AddWord />
