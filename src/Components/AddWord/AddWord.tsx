@@ -41,7 +41,7 @@ const InputAdornmentIcon = () => (
   </InputAdornment>
 )
 
-const AddWord = (onAddWordClick: ChapterItemProps) => {
+const AddWord = (props: ChapterItemProps) => {
   const [hanjaInput, setHanjaInput] = React.useState<string>('')
   const [hiraganaInput, setHiraganaInput] = React.useState<string>('')
   const [meaningInput, setMeaningInput] = React.useState<string>('')
@@ -61,7 +61,7 @@ const AddWord = (onAddWordClick: ChapterItemProps) => {
     setOpen(true)
   }
   const handleClose = () => {
-    onAddWordClick.onAddWordClick(hanjaInput, hiraganaInput, meaningInput)
+    props.onAddWordClick(hanjaInput, hiraganaInput, meaningInput)
     setHanjaInput('')
     setHiraganaInput('')
     setMeaningInput('')
