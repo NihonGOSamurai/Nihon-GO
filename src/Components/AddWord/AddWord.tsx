@@ -42,29 +42,29 @@ const InputAdornmentIcon = () => (
 )
 
 const AddWord = (props: ChapterItemProps) => {
-  const [hanjaInput, setHanjaInput] = React.useState<string>('')
-  const [hiraganaInput, setHiraganaInput] = React.useState<string>('')
-  const [meaningInput, setMeaningInput] = React.useState<string>('')
+  const [hanja, setHanja] = React.useState<string>('')
+  const [hiragana, setHiragana] = React.useState<string>('')
+  const [meaning, setMeaning] = React.useState<string>('')
 
   const [open, setOpen] = React.useState(false)
 
-  const handleHanjaInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setHanjaInput(e.target.value)
+  const handleHanjaChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setHanja(e.target.value)
 
-  const handleHiraganaInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setHiraganaInput(e.target.value)
+  const handleHiraganaChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setHiragana(e.target.value)
 
-  const handleMeaningInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setMeaningInput(e.target.value)
+  const handleMeaningChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setMeaning(e.target.value)
 
   const handleOpen = () => {
     setOpen(true)
   }
   const handleClose = () => {
-    props.onAddWordClick(hanjaInput, hiraganaInput, meaningInput)
-    setHanjaInput('')
-    setHiraganaInput('')
-    setMeaningInput('')
+    props.onAddWordClick(hanja, hiragana, meaning)
+    setHanja('')
+    setHiragana('')
+    setMeaning('')
     setOpen(false)
   }
 
@@ -92,8 +92,8 @@ const AddWord = (props: ChapterItemProps) => {
               label="漢字"
               placeholder="한자를 입력하세요"
               variant="outlined"
-              value={hanjaInput}
-              onChange={handleHanjaInputChange}
+              value={hanja}
+              onChange={handleHanjaChange}
               fullWidth={true}
             />
             <h1>ひらがな</h1>
@@ -101,8 +101,8 @@ const AddWord = (props: ChapterItemProps) => {
               label="ひらがな"
               placeholder="히라가나를 입력하세요"
               variant="outlined"
-              value={hiraganaInput}
-              onChange={handleHiraganaInputChange}
+              value={hiragana}
+              onChange={handleHiraganaChange}
               fullWidth={true}
               InputProps={{
                 endAdornment: <InputAdornmentIcon />
@@ -113,8 +113,8 @@ const AddWord = (props: ChapterItemProps) => {
               label="意味"
               placeholder="의미를 입력하세요"
               variant="outlined"
-              value={meaningInput}
-              onChange={handleMeaningInputChange}
+              value={meaning}
+              onChange={handleMeaningChange}
               fullWidth={true}
               InputProps={{
                 endAdornment: <InputAdornmentIcon />
