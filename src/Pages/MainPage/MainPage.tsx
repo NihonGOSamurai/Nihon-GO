@@ -17,7 +17,9 @@ const MainPage = () => {
         placeholder={text.search.placeholder}
       />
       <AddChapter />
-      <ChapterList>{generateChapterListItems(chapters)}</ChapterList>
+      <ChapterList>
+        {generateChapterListItems(chapters)}
+      </ChapterList>
     </>
   )
 }
