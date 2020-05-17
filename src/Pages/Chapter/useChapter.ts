@@ -1,17 +1,20 @@
-import { chapterItem } from "../../dummy";
-import React from "react";
-import { ChapterItem, HiraganaType, Word } from "../../ChapterItem";
-import { useState } from "react";
+import { chapterItem } from '../../dummy'
+import { useState } from 'react'
+import { HiraganaType } from '../../ChapterItem'
 
 type ChapterRouteParams = {
   chapterID: string;
 };
 
+export interface ChapterItemProps {
+  onAddWordClick: (hanja: string, hiragana: string, meaning: string) => void
+}
+
 export const useChapterItem = () => {
-  const [chapterItems, setChapterItems] = React.useState(chapterItem);
+  const [chapterItems, setChapterItems] = useState(chapterItem)
   return {
     chapterItems,
-    handleAddWord: (hanja: string, hiragana: string, meaning: string) => {
+    onAddWordClick: (hanja: string, hiragana: string, meaning: string) => {
       setChapterItems({
         ...chapterItems,
         words: [
@@ -21,18 +24,17 @@ export const useChapterItem = () => {
             hiraganas: [
               {
                 type: HiraganaType.None,
-                value: hiragana,
-              },
+                value: hiragana
+              }
             ],
             meanings: [
               {
-                value: meaning,
-              },
-            ],
-          },
-        ],
-      });
-      //console.log(chapterItems);
-    },
-  };
-};
+                value: meaning
+              }
+            ]
+          }
+        ]
+      })
+    }
+  }
+}

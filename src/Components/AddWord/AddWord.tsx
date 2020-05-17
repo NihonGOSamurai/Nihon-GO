@@ -1,20 +1,20 @@
-import React from "react";
-import AddIcon from "@material-ui/icons/Add";
-import Button from "@material-ui/core/Button";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-import TextField from "@material-ui/core/TextField";
-import styled from "styled-components";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import IconButton from "@material-ui/core/IconButton";
-import { useChapterItem } from "../../Pages/Chapter/useChapter";
+import React from 'react'
+import AddIcon from '@material-ui/icons/Add'
+import Button from '@material-ui/core/Button'
+import Modal from '@material-ui/core/Modal'
+import Backdrop from '@material-ui/core/Backdrop'
+import Fade from '@material-ui/core/Fade'
+import TextField from '@material-ui/core/TextField'
+import styled from 'styled-components'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import IconButton from '@material-ui/core/IconButton'
+import { ChapterItemProps } from '../../Pages/Chapter/useChapter'
 
 const StyledModal = styled(Modal)`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 
 const StyledPaper = styled.div`
   ${({ theme }) => `
@@ -25,13 +25,13 @@ const StyledPaper = styled.div`
   width: 300px;
   height: 550px;
   `}
-`;
+`
 
 const AddButton = styled(Button)`
   margin-top: 50px;
   align-items: center;
   justify-content: center;
-`;
+`
 
 const InputAdornmentIcon = () => (
   <InputAdornment position="end">
@@ -39,41 +39,34 @@ const InputAdornmentIcon = () => (
       <AddIcon />
     </IconButton>
   </InputAdornment>
-);
+)
 
-const AddWord = () => {
-  const [hanjaInput, setHanjaInput] = React.useState<string>("");
-  const [hiraganaInput, setHiraganaInput] = React.useState<string>("");
-  const [meaningInput, setMeaningInput] = React.useState<string>("");
-  const { chapterItems, handleAddWord } = useChapterItem();
+const AddWord = (onAddWordClick: ChapterItemProps) => {
+  const [hanjaInput, setHanjaInput] = React.useState<string>('')
+  const [hiraganaInput, setHiraganaInput] = React.useState<string>('')
+  const [meaningInput, setMeaningInput] = React.useState<string>('')
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false)
 
   const handleHanjaInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setHanjaInput(e.target.value);
+    setHanjaInput(e.target.value)
 
   const handleHiraganaInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setHiraganaInput(e.target.value);
+    setHiraganaInput(e.target.value)
 
   const handleMeaningInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setMeaningInput(e.target.value);
+    setMeaningInput(e.target.value)
 
   const handleOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
   const handleClose = () => {
-    //console.log(hanjaInput, hiraganaInput, meaningInput);
-    handleAddWord(hanjaInput, hiraganaInput, meaningInput);
-    setOpen(false);
-  };
-
-  const addHiragana = () => {
-    console.log("add hiragana!");
-  };
-
-  const addMeaning = () => {
-    console.log("add meaning!");
-  };
+    onAddWordClick.onAddWordClick(hanjaInput, hiraganaInput, meaningInput)
+    setHanjaInput('')
+    setHiraganaInput('')
+    setMeaningInput('')
+    setOpen(false)
+  }
 
   return (
     <div>
@@ -89,7 +82,7 @@ const AddWord = () => {
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 500,
+          timeout: 500
         }}
       >
         <Fade in={open}>
@@ -112,7 +105,7 @@ const AddWord = () => {
               onChange={handleHiraganaInputChange}
               fullWidth={true}
               InputProps={{
-                endAdornment: <InputAdornmentIcon />,
+                endAdornment: <InputAdornmentIcon />
               }}
             />
             <h1>意味</h1>
@@ -124,7 +117,7 @@ const AddWord = () => {
               onChange={handleMeaningInputChange}
               fullWidth={true}
               InputProps={{
-                endAdornment: <InputAdornmentIcon />,
+                endAdornment: <InputAdornmentIcon />
               }}
             />
             <AddButton
@@ -138,7 +131,7 @@ const AddWord = () => {
         </Fade>
       </StyledModal>
     </div>
-  );
-};
+  )
+}
 
-export default AddWord;
+export default AddWord

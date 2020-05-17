@@ -1,11 +1,11 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
-import { useChapterItem } from "./useChapter";
-import WordCard from "../../Components/WordCard";
-import { Word } from "../../ChapterItem";
-import FAB from "../../Components/FAB";
-import AddWord from "../../Components/AddWord";
+import React from 'react'
+import { Grid } from '@material-ui/core'
+import AddIcon from '@material-ui/icons/Add'
+import { useChapterItem } from './useChapter'
+import WordCard from '../../Components/WordCard'
+import { Word } from '../../ChapterItem'
+import FAB from '../../Components/FAB'
+import AddWord from '../../Components/AddWord'
 
 const toWordCard = (word: Word, i: number) => (
   <Grid key={i} item xs={12} md={6}>
@@ -15,14 +15,13 @@ const toWordCard = (word: Word, i: number) => (
       onDeleteMenuClick={(word) => console.log(word)}
     />
   </Grid>
-);
+)
 
 const Chapter = () => {
-  const { chapterItems, handleAddWord } = useChapterItem();
-  console.log(chapterItems);
+  const { chapterItems, onAddWordClick } = useChapterItem()
   return (
     <>
-      <AddWord />
+      <AddWord onAddWordClick={onAddWordClick} />
       <Grid container spacing={1}>
         {chapterItems.words.map(toWordCard)}
       </Grid>
@@ -30,7 +29,7 @@ const Chapter = () => {
         <AddIcon />
       </FAB>
     </>
-  );
-};
+  )
+}
 
-export default Chapter;
+export default Chapter
