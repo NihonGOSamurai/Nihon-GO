@@ -7,20 +7,20 @@ type ChapterRouteParams = {
 };
 
 export interface ChapterItemProps {
-  onAddWordClick: (hanja: string, hiragana: string, meaning: string) => void
+  onAddWordClick: (kanji: string, hiragana: string, meaning: string) => void
 }
 
 export const useChapterItem = () => {
   const [chapterItems, setChapterItems] = useState(chapterItem)
   return {
     chapterItems,
-    onAddWordClick: (hanja: string, hiragana: string, meaning: string) => {
+    onAddWordClick: (kanji: string, hiragana: string, meaning: string) => {
       setChapterItems({
         ...chapterItems,
         words: [
           ...chapterItems.words,
           {
-            text: hanja,
+            text: kanji,
             hiraganas: [
               {
                 type: HiraganaType.None,
