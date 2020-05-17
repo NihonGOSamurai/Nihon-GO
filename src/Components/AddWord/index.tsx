@@ -1,2 +1,2 @@
-export { default } from "./AddWord";
-export * from "./AddWord";
+export { default } from './AddWord'
+export * from './AddWord'
