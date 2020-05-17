@@ -1,2 +1,2 @@
-export { default } from "./AddChapter";
-export * from "./AddChapter";
+export { default } from './AddChapter'
+export * from './AddChapter'
