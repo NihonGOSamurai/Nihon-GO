@@ -8,7 +8,6 @@ import TextField from '@material-ui/core/TextField'
 import styled from 'styled-components'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import IconButton from '@material-ui/core/IconButton'
-import { ChapterItemProps } from '../../Pages/Chapter/useChapter'
 
 const StyledModal = styled(Modal)`
   display: flex;
@@ -33,6 +32,10 @@ const AddButton = styled(Button)`
   justify-content: center;
 `
 
+type AddWordProps = {
+  onAddWordClick: (kanji: string, hiragana: string, meaning: string) => void
+}
+
 const InputAdornmentIcon = () => (
   <InputAdornment position="end">
     <IconButton size="small">
@@ -41,7 +44,7 @@ const InputAdornmentIcon = () => (
   </InputAdornment>
 )
 
-const AddWord = (props: ChapterItemProps) => {
+const AddWord = (props: AddWordProps) => {
   const [hanja, setHanja] = React.useState<string>('')
   const [hiragana, setHiragana] = React.useState<string>('')
   const [meaning, setMeaning] = React.useState<string>('')
