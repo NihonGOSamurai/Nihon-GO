@@ -44,7 +44,7 @@ const InputAdornmentIcon = () => (
   </InputAdornment>
 )
 
-const AddWord = (props: AddWordProps) => {
+const AddWord = ({ onAddWordClick }: AddWordProps) => {
   const [kanji, setKanji] = React.useState<string>('')
   const [hiragana, setHiragana] = React.useState<string>('')
   const [meaning, setMeaning] = React.useState<string>('')
@@ -64,7 +64,7 @@ const AddWord = (props: AddWordProps) => {
     setOpen(true)
   }
   const handleClose = () => {
-    props.onAddWordClick(kanji, hiragana, meaning)
+    onAddWordClick(kanji, hiragana, meaning)
     setKanji('')
     setHiragana('')
     setMeaning('')
