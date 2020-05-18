@@ -45,14 +45,14 @@ const InputAdornmentIcon = () => (
 )
 
 const AddWord = (props: AddWordProps) => {
-  const [hanja, setHanja] = React.useState<string>('')
+  const [kanji, setKanji] = React.useState<string>('')
   const [hiragana, setHiragana] = React.useState<string>('')
   const [meaning, setMeaning] = React.useState<string>('')
 
   const [open, setOpen] = React.useState(false)
 
-  const handleHanjaChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setHanja(e.target.value)
+  const handleKanjiChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setKanji(e.target.value)
 
   const handleHiraganaChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setHiragana(e.target.value)
@@ -64,8 +64,8 @@ const AddWord = (props: AddWordProps) => {
     setOpen(true)
   }
   const handleClose = () => {
-    props.onAddWordClick(hanja, hiragana, meaning)
-    setHanja('')
+    props.onAddWordClick(kanji, hiragana, meaning)
+    setKanji('')
     setHiragana('')
     setMeaning('')
     setOpen(false)
@@ -95,8 +95,8 @@ const AddWord = (props: AddWordProps) => {
               label="漢字"
               placeholder="한자를 입력하세요"
               variant="outlined"
-              value={hanja}
-              onChange={handleHanjaChange}
+              value={kanji}
+              onChange={handleKanjiChange}
               fullWidth={true}
             />
             <h1>ひらがな</h1>
